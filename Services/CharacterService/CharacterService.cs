@@ -51,12 +51,14 @@ namespace dotnet_project.Services.CharacterService
             if(character is null){
                 throw new Exception($"Character with id '{updatedCharacter.Id}' not found.");
             }
-            character.Name = updatedCharacter.Name;
-            character.HitPoints = updatedCharacter.HitPoints;
-            character.Strength = updatedCharacter.Strength;
-            character.Defense = updatedCharacter.Defense;
-            character.Intelligence = updatedCharacter.Intelligence;
-            character.Class = updatedCharacter.Class;
+
+            _mapper.Map(updatedCharacter, character);
+            // character.Name = updatedCharacter.Name;
+            // character.HitPoints = updatedCharacter.HitPoints;
+            // character.Strength = updatedCharacter.Strength;
+            // character.Defense = updatedCharacter.Defense;
+            // character.Intelligence = updatedCharacter.Intelligence;
+            // character.Class = updatedCharacter.Class;
 
             serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
             }
