@@ -12,5 +12,6 @@ namespace dotnet_project.Data
             
         }
         public DbSet<Character> Characters => Set<Character>();
+        public DbSet<User> Users => Set<User>();
     }
 }
